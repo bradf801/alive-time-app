@@ -25,9 +25,9 @@ const FocusApp: React.FC = () => {
   const fetchQuote = async () => {
     // Fetch a motivational quote from Quotable API
     // Placeholder code for fetching quote
-    const response = await fetch('https://api.quotable.io/random?tags=existentialism|productivity|focus');
+    const response = await fetch('https://api.quotable.io/random');
     const data = await response.json();
-    setCurrentQuote({ content: data.content, author: data.author });
+    setCurrentQuote({ content: data.content, author: data.author, tags: data.tags});
   };
 
   const getMinutesRemainingInYear = (): string => {
@@ -62,11 +62,11 @@ const FocusApp: React.FC = () => {
         <div>Year Countdown: {yearCountdown}</div>
         <div>Day Countdown: {dayCountdown}</div>
       </div>
-      <div style={{ textAlign: 'center', marginTop: '200px' }}>
+      <div style={{ textAlign: 'center', marginTop: '200px', color: 'white', textShadow: '2px 2px 4px #000000'}}>
         <div>Today's Focus:</div>
-        <input type="text" value={dailyFocus} onChange={(e) => setDailyFocus(e.target.value)} style={{ color: 'yellow', textShadow: '2px 2px 4px #000000' }} />
+        <input type="text" value={dailyFocus} onChange={(e) => setDailyFocus(e.target.value)} style={{ color: 'black' }} />
       </div>
-      <div style={{ textAlign: 'center', position: 'absolute', bottom: '20px', width: '100%' }}>
+      <div style={{ textAlign: 'center', position: 'absolute', bottom: '100px', width: '100%', fontSize: '30px', textShadow: '2px 2px 4px #000000'}}>
         <div>{currentQuote.content}</div>
         <div>- {currentQuote.author}</div>
       </div>
